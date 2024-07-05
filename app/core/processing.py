@@ -79,6 +79,7 @@ async def process_pdf(file_path: str) -> Optional[dict]:
             endpoint=my_endpoint
         )
 
+
         parsed_json = json.loads(result.raw_http)
         clean_data = process_items(parsed_json)
         return clean_data
