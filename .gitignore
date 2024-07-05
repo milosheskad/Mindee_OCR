@@ -1,5 +1,7 @@
 .venv/
 .env
+.idea
+.data/
 
 # Ignore Python cache files
 __pycache__/
@@ -14,4 +16,3 @@ tests/*.pyc
 .vscode/
 
 /data
-.idea
