@@ -1,0 +1,86 @@
+# Mindee OCR with FastAPI
+This project provides a FastAPI-based service that allows users to upload PDF and image files (PNG, JPG, JPEG). The service processes these files using the Mindee API to extract information and stores the results in temporary storage.
+
+## Features
+Accepts both PDF and image file uploads.
+Processes PDF files using the Mindee API.
+Stores processed results in temporary storage.
+Provides an endpoint to retrieve the processing results.
+The Mindee API is custom-configured for the documents in the ```/data``` folder using docTI. 
+
+For different templates, you should change the configurations and the items in the ```core/processing.py``` file accordingly.
+
+Project Structure:
+
+``` 
+├── .venv/
+│   ├── Include/
+│   ├── Lib/
+│   ├── Library/
+│   ├── Scripts/
+│   ├── share/
+│   └── pyvenv.cfg
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── api/
+│   │   ├── __init__.py
+│   │   └── endpoints.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   └── processing.py
+├── data/
+│       └── Tig.pdf
+├── tests/
+│   ├── __init__.py
+│   └── test.py
+│
+├── requirements.txt
+├── .env
+├── .gitignore
+└── README.md
+```
+
+## Installation
+Clone the repository:
+Copy code
+```
+git clone https://github.com/your-username/fastapi-file-upload-service.git
+cd fastapi-file-upload-service
+```
+Create a virtual environment:
+```
+python3 -m venv venv
+venv\Scripts\activate
+```
+Install the dependencies:
+```
+pip install -r requirements.txt
+```
+## Configuration
+Set up your Mindee API credentials:
+
+Open app/core/config.py and replace the api_key with your Mindee API key.
+```
+mindee_client = Client(api_key="your_mindee_api_key")
+```
+
+
+The default temporary directory is set to /tmp/. If you want to change it, modify the TEMP_DIR variable in app/api/endpoints.py.
+
+## Running the Application
+
+### Start the FastAPI application:
+
+```uvicorn app.main:app --reload```
+
+### Access interactive API:
+Open your browser and navigate to http://127.0.0.1:8000/docs to see the interactive API documentation.
+
+If the app is already running, you can start Streamlit with:
+
+```streamlit run frontend_streamlit.py```
+
+Here is an graphic representaion of the project 
