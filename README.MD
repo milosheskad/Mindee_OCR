@@ -89,10 +89,10 @@ If the app is already running, you can start Streamlit with:
 Here is a graphic representation of the project:
 
 * Document in png format
-![check1](results\processed_png.png)
+![check1](results/processed_png.png)
 
 * The same document in pdf format 
-![check1](results\processed_pdf.png)
+![check1](results/processed_pdf.png)
 
 * Different document 
-![check1](results\processed_pdf2.png)
+![check1](results/processed_pdf2.png)
