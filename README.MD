@@ -88,11 +88,16 @@ If the app is already running, you can start Streamlit with:
 
 Here is a graphic representation of the project:
 
-* Document in png format
-![check1](results/processed_png.png)
 
-* The same document in pdf format 
-![check1](results/processed_pdf.png)
-
-* Different document 
-![check1](results/processed_pdf2.png)
+<table>
+  <tr>
+    <td><strong>Document in png format</strong></td>
+    <td><strong>The same document in pdf format</strong></td>
+    <td><strong>Different document</strong></td>
+  </tr>
+  <tr>
+    <td><img src="results/processed_png.png" alt="Document in png format" width="200"/></td>
+    <td><img src="results/processed_pdf.png" alt="The same document in pdf format" width="200"/></td>
+    <td><img src="results/processed_pdf2.png" alt="Different document" width="200"/></td>
+  </tr>
+</table>
