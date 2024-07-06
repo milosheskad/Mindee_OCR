@@ -8,6 +8,11 @@ This project provides a FastAPI-based service that allows users to upload PDF an
 * Provides an endpoint to retrieve the processing results.
 * The Mindee API is custom-configured for the documents in the ```/data``` folder using docTI. 
 
+This is the data model in the Mindee
+
+&emsp;&emsp;&emsp; <img src="results/data_model.png" alt="Document in png format" width="200"/></td>
+
+
 For different templates, you should change the configurations and the items in the ```core/processing.py``` file accordingly.
 
 Project Structure:
