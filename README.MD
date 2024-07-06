@@ -35,6 +35,10 @@ Project Structure:
 ├── tests/
 │   ├── __init__.py
 │   └── test.py
+├── results/
+│   ├── processed_pdf.png
+│   ├── processed_pdf2.png
+│   └── processed_png.png
 │
 ├── requirements.txt
 ├── .env
