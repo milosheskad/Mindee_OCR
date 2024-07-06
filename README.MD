@@ -2,11 +2,11 @@
 This project provides a FastAPI-based service that allows users to upload PDF and image files (PNG, JPG, JPEG). The service processes these files using the Mindee API to extract information and stores the results in temporary storage.
 
 ## Features
-Accepts both PDF and image file uploads.
-Processes PDF files using the Mindee API.
-Stores processed results in temporary storage.
-Provides an endpoint to retrieve the processing results.
-The Mindee API is custom-configured for the documents in the ```/data``` folder using docTI. 
+* Accepts both PDF and image file uploads.
+* Processes PDF files using the Mindee API.
+* Stores processed results in temporary storage.
+* Provides an endpoint to retrieve the processing results.
+* The Mindee API is custom-configured for the documents in the ```/data``` folder using docTI. 
 
 For different templates, you should change the configurations and the items in the ```core/processing.py``` file accordingly.
 
@@ -22,8 +22,6 @@ Project Structure:
 │   └── pyvenv.cfg
 │
 ├── app/
-│   ├── __init__.py
-│   ├── main.py
 │   ├── api/
 │   │   ├── __init__.py
 │   │   └── endpoints.py
@@ -32,7 +30,8 @@ Project Structure:
 │   │   ├── config.py
 │   │   └── processing.py
 ├── data/
-│       └── Tig.pdf
+│       ├── TEM3.png
+│       └── TEM3.pdf
 ├── tests/
 │   ├── __init__.py
 │   └── test.py
@@ -47,8 +46,8 @@ Project Structure:
 Clone the repository:
 Copy code
 ```
-git clone https://github.com/your-username/fastapi-file-upload-service.git
-cd fastapi-file-upload-service
+git clone https://github.com/milosheskad/Mindee_OCR.git
+cd Mindee_OCR
 ```
 Create a virtual environment:
 ```
@@ -74,7 +73,7 @@ The default temporary directory is set to /tmp/. If you want to change it, modif
 
 ### Start the FastAPI application:
 
-```uvicorn app.main:app --reload```
+```uvicorn application.main:app --reload```
 
 ### Access interactive API:
 Open your browser and navigate to http://127.0.0.1:8000/docs to see the interactive API documentation.
@@ -83,4 +82,13 @@ If the app is already running, you can start Streamlit with:
 
 ```streamlit run frontend_streamlit.py```
 
-Here is an graphic representaion of the project 
+Here is a graphic representation of the project:
+
+* Document in png format
+![check1](results\processed_png.png)
+
+* The same document in pdf format 
+![check1](results\processed_pdf.png)
+
+* Different document 
+![check1](results\processed_pdf2.png)

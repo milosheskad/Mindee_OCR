@@ -3,7 +3,7 @@ import uuid
 from fastapi import APIRouter, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse
 import aiofiles
-from app.core.processing import process_pdf, results_storage
+from application.core.processing import process_pdf, results_storage
 
 router = APIRouter()
 
@@ -27,7 +27,6 @@ async def upload_file(file: UploadFile = File(...)):
         json_data = await process_pdf(file_location)
 
         result_id = str(uuid.uuid4())
-        # print(result_id)
         results_storage[result_id] = json_data
         os.remove(file_location)
 

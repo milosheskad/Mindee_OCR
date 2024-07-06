@@ -2,7 +2,7 @@ import json
 from typing import Optional
 from fastapi import HTTPException
 from mindee import product
-from app.core.config import mindee_client, my_endpoint
+from application.core.config import mindee_client, my_endpoint
 
 results_storage = {}
 
@@ -78,7 +78,6 @@ async def process_pdf(file_path: str) -> Optional[dict]:
             input_doc,
             endpoint=my_endpoint
         )
-
 
         parsed_json = json.loads(result.raw_http)
         clean_data = process_items(parsed_json)

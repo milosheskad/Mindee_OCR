@@ -2,18 +2,17 @@ import streamlit as st
 import requests
 import json
 
-# FastAPI server URL
 UPLOAD_URL = "http://localhost:8000/upload/"
 RESULT_URL = "http://localhost:8000/result/"
 
 st.title("Bill of Lading Processing App")
 
-uploaded_file = st.file_uploader("Upload your Bill of Lading PDF file", type=["pdf"])
+uploaded_file = st.file_uploader("Upload your Bill of Lading PDF or Image file", type=["pdf", "jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     with st.spinner("Uploading file..."):
         try:
-            files = {"file": uploaded_file}
+            files = {"file": (uploaded_file.name, uploaded_file, uploaded_file.type)}
             response = requests.post(UPLOAD_URL, files=files)
             response.raise_for_status()
             result_id = response.text.strip('"')
@@ -29,4 +28,3 @@ if uploaded_file is not None:
 
         except requests.exceptions.RequestException as e:
             st.error(f"Error: {e}")
-

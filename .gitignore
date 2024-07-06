@@ -1,7 +1,8 @@
 .venv/
 .env
 .idea
-data/
+data/TEM3.pdf
+data/TEM3.png
 idea/
 
 # Ignore Python cache files
