@@ -10,9 +10,7 @@ results_storage = {}
 def process_items(items: dict) -> dict:
     processed_item = {}
     try:
-        print(items)
 
-        # Verify the expected structure
         if not isinstance(items, dict) or 'document' not in items:
             raise ValueError("Invalid input structure: 'document' key is missing.")
 
@@ -31,7 +29,6 @@ def process_items(items: dict) -> dict:
         if not isinstance(prediction, dict):
             raise ValueError("Invalid input structure: 'prediction' is not a dictionary.")
 
-        # Extract the required fields
         processed_item['date_of_shipment'] = prediction['date_of_shipment']['value']
         processed_item['bill_of_landing_number'] = prediction['bill_of_landing_number']['value']
         processed_item['master_bill_of_landing_number'] = prediction['master_bill_of_landing_number']['value']
@@ -47,8 +44,6 @@ def process_items(items: dict) -> dict:
         processed_item['pallets_shipped'] = prediction['pallets_shipped']['value']
         processed_item['upc_code'] = prediction['customer_item_id']['value']
         processed_item['total_weight'] = prediction['total_weight']['value']
-
-        print(processed_item)
 
     except KeyError as e:
         print(f"KeyError: {e}")
@@ -67,11 +62,9 @@ def process_items(items: dict) -> dict:
 
 async def process_pdf(file_path: str) -> Optional[dict]:
     try:
-        # Load file from disk
         print(f"Loading file from path: {file_path}")
         input_doc = mindee_client.source_from_path(file_path)
 
-        # Parse the file
         print(f"Sending file to Mindee API for processing...")
         result = mindee_client.enqueue_and_parse(
             product.GeneratedV1,
