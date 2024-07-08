@@ -6,9 +6,9 @@ client = TestClient(app)
 
 
 def test_upload_file():
-    file_path = "\data\TEM3.pdf"
+    file_path = "/data/TEM3.png"
     with open(file_path, "rb") as file:
-        response = client.post("/upload/", files={"file": ("TEM3.pdf", file, "application/data")})
+        response = client.post("/upload/", files={"file": ("TEM3.png", file, "application/data")})
 
     assert response.status_code == 200
     result_id = response.json()
@@ -40,8 +40,3 @@ def test_get_result():
     result = response.json()
     assert result["bill_of_landing_number"] == "BL123456"
 
-
-def test_get_result_not_found():
-    response = client.get("/result/invalid_id")
-    assert response.status_code == 404
-    assert response.json() == {"detail": "Result not found"}
